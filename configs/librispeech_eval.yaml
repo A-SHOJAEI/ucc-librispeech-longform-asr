@@ -1,0 +1,28 @@
+project:
+  output_dir: runs
+  artifacts_dir: artifacts
+
+data:
+  kind: librispeech
+  librispeech:
+    root: data/librispeech
+    manifests_dir: data/librispeech/manifests
+    splits:
+      dev_clean: dev-clean
+      dev_other: dev-other
+      test_clean: test-clean
+      test_other: test-other
+
+eval:
+  greedy: true
+  longform:
+    enabled: true
+    k: 8
+    seam_window_words: 3
+
+# For eval-only, point to existing run dirs (or re-use names from your train configs).
+experiments:
+  - name: baseline
+  - name: ucc_n4_sil200_ramp
+  - name: ablation_no_silence
+

@@ -1,0 +1,13 @@
+# Pinned to reasonable, modern versions. Torch wheels may be CPU by default.
+# For CUDA wheels, install torch/torchaudio from the appropriate PyTorch index URL.
+torch==2.4.1
+torchaudio==2.4.1
+transformers==4.45.2
+tokenizers==0.20.1
+numpy==1.26.4
+pyyaml==6.0.2
+tqdm==4.66.5
+requests==2.32.3
+soundfile==0.12.1
+jiwer==3.0.4
+packaging==24.1

@@ -1,0 +1,70 @@
+project:
+  output_dir: runs
+  artifacts_dir: artifacts
+
+data:
+  kind: smoke
+  smoke:
+    root: data/smoke
+    sample_rate: 16000
+    n_train: 24
+    n_dev: 8
+    n_test: 8
+    clip_seconds: 1.2
+    vocab: ["hello", "world", "book", "speech", "clean", "other", "test", "train"]
+
+model:
+  pretrained_name: facebook/wav2vec2-base-960h
+  gradient_checkpointing: false
+  mask_time_prob: 0.05
+  mask_time_length: 10
+
+train:
+  seed: 1337
+  determinism: warn   # off|warn|strict
+  # Keep the default smoke run robust on machines with/without CUDA.
+  # (GPU runs can be enabled explicitly by switching this back to `auto`/`cuda`.)
+  device: cpu         # auto|cpu|cuda
+  amp: false
+  max_steps: 4
+  eval_every_steps: 2
+  log_every_steps: 1
+  batch_size: 2
+  grad_accum_steps: 1
+  lr: 1.0e-4
+  weight_decay: 0.01
+  warmup_steps: 0
+  max_grad_norm: 1.0
+  num_workers: 0
+  save_best_metric: dev_wer
+
+eval:
+  greedy: true
+  longform:
+    enabled: true
+    k: 4
+    seam_window_words: 3
+
+experiments:
+  - name: baseline
+    train:
+      ucc:
+        enabled: false
+
+  - name: ucc_n4_sil200_ramp
+    train:
+      ucc:
+        enabled: true
+        target_n: 4
+        schedule: ramp
+        rampup_fraction: 0.5
+        boundary_silence_sec: 0.2
+
+  - name: ablation_no_silence
+    train:
+      ucc:
+        enabled: true
+        target_n: 4
+        schedule: ramp
+        rampup_fraction: 0.5
+        boundary_silence_sec: 0.0

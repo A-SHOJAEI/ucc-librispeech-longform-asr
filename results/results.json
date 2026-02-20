@@ -1,0 +1,117 @@
+{
+  "config_path": "/home/alireza/AI project/projects/ucc-librispeech-longform-asr/configs/smoke.yaml",
+  "experiments": [
+    {
+      "checkpoint": "runs/baseline/checkpoints/best.pt",
+      "device": "cpu",
+      "evaluated_at": "2026-02-20T06:03:28Z",
+      "longform": {
+        "audio_seconds": 9.6,
+        "cer": 1.0,
+        "n_examples": 2,
+        "rtf": 0.4788273940622882,
+        "seam_local": {
+          "deletions": 19,
+          "error_rate": 1.0,
+          "insertions": 0,
+          "ref_words": 19,
+          "substitutions": 0,
+          "window_words": 3
+        },
+        "wer": 1.0
+      },
+      "name": "baseline",
+      "splits": {
+        "dev": {
+          "audio_seconds": 4.8,
+          "cer": 0.9629629629629629,
+          "n_utterances": 4,
+          "rtf": 1.520392531667009,
+          "wer": 1.0
+        },
+        "test": {
+          "audio_seconds": 4.8,
+          "cer": 1.0,
+          "n_utterances": 4,
+          "rtf": 1.931848921666036,
+          "wer": 1.0
+        }
+      }
+    },
+    {
+      "checkpoint": "runs/ucc_n4_sil200_ramp/checkpoints/best.pt",
+      "device": "cpu",
+      "evaluated_at": "2026-02-20T06:03:52Z",
+      "longform": {
+        "audio_seconds": 10.8,
+        "cer": 1.0,
+        "n_examples": 2,
+        "rtf": 0.5023597101852054,
+        "seam_local": {
+          "deletions": 19,
+          "error_rate": 1.0,
+          "insertions": 0,
+          "ref_words": 19,
+          "substitutions": 0,
+          "window_words": 3
+        },
+        "wer": 1.0
+      },
+      "name": "ucc_n4_sil200_ramp",
+      "splits": {
+        "dev": {
+          "audio_seconds": 4.8,
+          "cer": 1.0,
+          "n_utterances": 4,
+          "rtf": 1.1412741677092224,
+          "wer": 1.0
+        },
+        "test": {
+          "audio_seconds": 4.8,
+          "cer": 1.0,
+          "n_utterances": 4,
+          "rtf": 1.3075574277081614,
+          "wer": 1.0
+        }
+      }
+    },
+    {
+      "checkpoint": "runs/ablation_no_silence/checkpoints/best.pt",
+      "device": "cpu",
+      "evaluated_at": "2026-02-20T06:04:12Z",
+      "longform": {
+        "audio_seconds": 9.6,
+        "cer": 1.0,
+        "n_examples": 2,
+        "rtf": 0.541777828229139,
+        "seam_local": {
+          "deletions": 19,
+          "error_rate": 1.0,
+          "insertions": 0,
+          "ref_words": 19,
+          "substitutions": 0,
+          "window_words": 3
+        },
+        "wer": 1.0
+      },
+      "name": "ablation_no_silence",
+      "splits": {
+        "dev": {
+          "audio_seconds": 4.8,
+          "cer": 1.0,
+          "n_utterances": 4,
+          "rtf": 2.496265165833999,
+          "wer": 1.0
+        },
+        "test": {
+          "audio_seconds": 4.8,
+          "cer": 1.0,
+          "n_utterances": 4,
+          "rtf": 1.9404203287497999,
+          "wer": 1.0
+        }
+      }
+    }
+  ],
+  "generated_at": "2026-02-20T06:03:25Z"
+}

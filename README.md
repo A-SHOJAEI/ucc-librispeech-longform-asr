@@ -60,11 +60,11 @@ LibriSpeech training configs mirror the same idea with longer runs (e.g., `max_s
 
 ## Results (Exact Numbers From This Repo)
 
-The checked-in results were generated from `configs/smoke.yaml` and written to `artifacts/results.json` at `2026-02-10T18:08:42Z` (aggregate) and `artifacts/report.md` at `2026-02-10T18:08:46Z`.
+The checked-in results were generated from `configs/smoke.yaml` and written to `artifacts/results.json` at `2026-02-20T06:03:25Z` (aggregate).
 There are no figures; the repo produces markdown tables (see `artifacts/report.md`).
 
-**Standard evaluation (WER)**  
-Source: `artifacts/report.md` section "Standard Evaluation" (derived from `artifacts/results.json`).
+**Standard evaluation (WER)**
+Source: `artifacts/results.json` (derived from eval stage).
 
 | experiment | dev_wer | test_wer |
 | --- | --- | --- |
@@ -72,14 +72,14 @@ Source: `artifacts/report.md` section "Standard Evaluation" (derived from `artif
 | ucc_n4_sil200_ramp | 1.0000 | 1.0000 |
 | ablation_no_silence | 1.0000 | 1.0000 |
 
-**Long-form synthetic evaluation**  
-Source: `artifacts/report.md` section "Long-Form Synthetic Evaluation".
+**Long-form synthetic evaluation**
+Source: `artifacts/results.json` longform section.
 
 | experiment | longform_wer | longform_cer | seam_local_error_rate | rtf |
 | --- | --- | --- | --- | --- |
-| baseline | 1.0000 | 1.0000 | 1.0000 | 0.0189 |
-| ucc_n4_sil200_ramp | 1.0000 | 1.0000 | 1.0000 | 0.0185 |
-| ablation_no_silence | 1.0000 | 1.0000 | 1.0000 | 0.0182 |
+| baseline | 1.0000 | 1.0000 | 1.0000 | 0.4788 |
+| ucc_n4_sil200_ramp | 1.0000 | 1.0000 | 1.0000 | 0.5024 |
+| ablation_no_silence | 1.0000 | 1.0000 | 1.0000 | 0.5418 |
 
 **Eval/runtime traceability (from `artifacts/results.json`)**
 - `device`: `cpu` for all three experiments in this run.
